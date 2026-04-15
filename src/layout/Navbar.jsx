@@ -22,7 +22,7 @@ const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <h1 className="text-lg font-semibold tracking-wide">
-          AKSHAT GIRI TIWARI
+          AKSHAT
         </h1>
 
         <div className="flex gap-8 text-slate-300">
