@@ -135,30 +135,37 @@ const Projects = () => {
                 </h3>
 
                 <div className="relative mb-6">
-                  <img
-                    src={selectedProject.images[currentImage]}
-                    alt="Project Screenshot"
-                    className="w-full max-h-[80vh] object-contain bg-slate-950 rounded-lg"
-                  />
+                  <motion.img
+  src={selectedProject.images[currentImage]}
+  alt="Project Screenshot"
+  initial={false}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.2 }}
+  className="w-full max-h-[80vh] object-contain bg-slate-950 rounded-lg"
+/>
 
                   {selectedProject.images.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 px-4 py-2 rounded-full"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700 hover:border-blue-500 hover:scale-110 transition-all duration-300 flex items-center justify-center text-xl shadow-lg"
                       >
-                        ←
+                        ❮
                       </button>
 
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 px-4 py-2 rounded-full"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700 hover:border-blue-500 hover:scale-110 transition-all duration-300 flex items-center justify-center text-xl shadow-lg"
                       >
-                        →
+                        ❯
                       </button>
                     </>
                   )}
                 </div>
+
+                <p className="mx-auto w-fit px-3 py-1 rounded-full bg-slate-800 text-sm text-slate-400 mb-6">
+                  {currentImage + 1} / {selectedProject.images.length}
+                </p>
 
                 <p className="text-slate-400 mb-6 leading-8">
                   {selectedProject.description}
