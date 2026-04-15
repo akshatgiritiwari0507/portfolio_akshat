@@ -52,9 +52,10 @@ const Projects = () => {
   const [currentImage, setCurrentImage] = useState(0)
 
   const openProject = (project) => {
-    setSelectedProject(project)
-    setCurrentImage(0)
-  }
+  preloadImages(project.images)
+  setSelectedProject(project)
+  setCurrentImage(0)
+}
 
   const nextImage = () => {
     setCurrentImage((prev) =>
@@ -67,7 +68,12 @@ const Projects = () => {
       prev === 0 ? selectedProject.images.length - 1 : prev - 1
     )
   }
-
+  const preloadImages = (images) => {
+  images.forEach((src) => {
+    const img = new Image()
+    img.src = src
+  })
+}
   return (
     <section id="projects" className="py-28 px-6 relative">
       <Reveal>
