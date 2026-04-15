@@ -76,7 +76,6 @@ const Projects = () => {
             Projects
           </h2>
 
-          {/* Project Cards */}
           <div className="grid md:grid-cols-3 gap-10">
             {projects.map((project, index) => (
               <div
@@ -106,7 +105,6 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Modal */}
         <AnimatePresence>
           {selectedProject && (
             <motion.div
@@ -125,7 +123,6 @@ const Projects = () => {
                 transition={{ duration: 0.3 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Close Button */}
                 <button
                   className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"
                   onClick={() => setSelectedProject(null)}
@@ -133,12 +130,10 @@ const Projects = () => {
                   ✕
                 </button>
 
-                {/* Title */}
                 <h3 className="text-2xl font-semibold mb-6 text-blue-500">
                   {selectedProject.title}
                 </h3>
 
-                {/* Screenshot Carousel */}
                 <div className="relative mb-6">
                   <img
                     src={selectedProject.images[currentImage]}
@@ -165,12 +160,10 @@ const Projects = () => {
                   )}
                 </div>
 
-                {/* Description */}
                 <p className="text-slate-400 mb-6 leading-8">
                   {selectedProject.description}
                 </p>
 
-                {/* GitHub Button */}
                 <a
                   href={selectedProject.github}
                   target="_blank"

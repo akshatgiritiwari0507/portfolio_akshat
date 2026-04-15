@@ -10,8 +10,7 @@ This project is intentionally designed to be minimal, modern, and recruiter-focu
 
 ## 🔗 Live Preview
 
-(Deployment link will be added here)
-
+https://akshat05-portfolio.netlify.app/
 
 ---
 

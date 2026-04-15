@@ -24,47 +24,34 @@ const techCategories = [
 const TechStack = () => {
   return (
     <section className="py-24 px-6">
-        <Reveal>
-      <div className="max-w-6xl mx-auto space-y-12">
+      <Reveal>
+        <div className="max-w-6xl mx-auto space-y-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center tracking-tight">
+            Tech Stack
+          </h2>
 
-<h2 className="text-3xl md:text-4xl font-bold mb-16 text-center tracking-tight">
-          Tech Stack
-        </h2>
+          {techCategories.map((category, index) => (
+            <div
+              key={index}
+              className="flex flex-col md:flex-row md:items-start md:gap-20 gap-8"
+            >
+              <h3 className="text-lg font-semibold text-blue-500 min-w-[220px]">
+                {category.title}
+              </h3>
 
-        {techCategories.map((category, index) => (
-          <div
-            key={index}
-className="flex flex-col md:flex-row md:items-start md:gap-20 gap-8"
-          >
-            {/* Left Title */}
-            <h3 className="text-lg font-semibold text-blue-500 min-w-[220px]">
-              {category.title}
-            </h3>
-
-            {/* Right Logos */}
-            <div className="flex flex-wrap gap-6">
-              {category.items.map((icon, i) => (
-                <div
-                  key={i}
-                  className="p-4 bg-slate-700/30 backdrop-blur-md 
-                             border border-slate-600/50 
-                             rounded-lg 
-                             hover:border-blue-500 
-                             hover:shadow-md hover:shadow-blue-500/10
-                             transition duration-300"
-                >
-                  <img
-                    src={icon}
-                    alt=""
-                    className="h-10 w-auto opacity-90"
-                  />
-                </div>
-              ))}
+              <div className="flex flex-wrap gap-6">
+                {category.items.map((icon, i) => (
+                  <div
+                    key={i}
+                    className="p-4 bg-slate-700/30 backdrop-blur-md border border-slate-600/50 rounded-lg hover:border-blue-500 hover:shadow-md hover:shadow-blue-500/10 transition duration-300"
+                  >
+                    <img src={icon} alt="" className="h-10 w-auto opacity-90" />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-
-      </div>
+          ))}
+        </div>
       </Reveal>
     </section>
   )

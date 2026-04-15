@@ -21,7 +21,6 @@ const Navbar = () => {
       } backdrop-blur-md`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        
         <h1 className="text-lg font-semibold tracking-wide">
           AKSHAT GIRI TIWARI
         </h1>
@@ -37,7 +36,6 @@ const Navbar = () => {
             Contact
           </a>
         </div>
-
       </div>
     </nav>
   )
