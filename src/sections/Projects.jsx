@@ -16,7 +16,7 @@ import ml2 from "../assets/projects/mlpredictor/2.png"
 import ml3 from "../assets/projects/mlpredictor/3.png"
 import ml4 from "../assets/projects/mlpredictor/4.png"
 
-//expense screenshorts
+// Expense Tracker screenshots
 import exp1 from "../assets/projects/expensetracker/1.png"
 import exp2 from "../assets/projects/expensetracker/2.png"
 import exp3 from "../assets/projects/expensetracker/3.png"
@@ -47,11 +47,11 @@ const projects = [
     github: "https://github.com/akshatgiritiwari0507/ml-recomendation-syst",
   },
   {
-  title: "Expense Tracker",
-  description:
-    "A full-stack expense tracking application that allows users to record, categorize, and analyze daily expenses. It features an intuitive UI, real-time updates, and efficient data handling for better financial insights.",
-  images: [exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8],
-  github: "https://github.com/YOUR_EXPENSE_TRACKER_LINK",
+    title: "Expense Tracker",
+    description:
+      "A full-stack expense tracking application that allows users to record, categorize, and analyze daily expenses. It features an intuitive UI, real-time updates, and efficient data handling for better financial insights.",
+    images: [exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8],
+    github: "https://github.com/YOUR_EXPENSE_TRACKER_LINK",
   },
   {
     title: "Document Expiry Reminder",
@@ -65,12 +65,20 @@ const projects = [
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null)
   const [currentImage, setCurrentImage] = useState(0)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  const preloadImages = (images) => {
+    images.forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }
 
   const openProject = (project) => {
-  preloadImages(project.images)
-  setSelectedProject(project)
-  setCurrentImage(0)
-}
+    preloadImages(project.images)
+    setSelectedProject(project)
+    setCurrentImage(0)
+  }
 
   const nextImage = () => {
     setCurrentImage((prev) =>
@@ -83,12 +91,7 @@ const Projects = () => {
       prev === 0 ? selectedProject.images.length - 1 : prev - 1
     )
   }
-  const preloadImages = (images) => {
-  images.forEach((src) => {
-    const img = new Image()
-    img.src = src
-  })
-}
+
   return (
     <section id="projects" className="py-28 px-6 relative">
       <Reveal>
@@ -116,7 +119,6 @@ const Projects = () => {
                   <h3 className="text-xl font-semibold mb-4 text-blue-500">
                     {project.title}
                   </h3>
-
                   <p className="text-slate-400 leading-8 text-sm">
                     {project.description}
                   </p>
@@ -134,7 +136,10 @@ const Projects = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              onClick={() => setSelectedProject(null)}
+              onClick={() => {
+                setSelectedProject(null)
+                setIsFullscreen(false)
+              }}
             >
               <motion.div
                 className="bg-slate-900 border border-slate-700 rounded-xl max-w-3xl w-full p-8 relative"
@@ -146,7 +151,10 @@ const Projects = () => {
               >
                 <button
                   className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"
-                  onClick={() => setSelectedProject(null)}
+                  onClick={() => {
+                    setSelectedProject(null)
+                    setIsFullscreen(false)
+                  }}
                 >
                   ✕
                 </button>
@@ -156,14 +164,11 @@ const Projects = () => {
                 </h3>
 
                 <div className="relative mb-6">
-                  <motion.img
-  src={selectedProject.images[currentImage]}
-  alt="Project Screenshot"
-  initial={false}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.2 }}
-  className="w-full max-h-[80vh] object-contain bg-slate-950 rounded-lg"
-/>
+                  <img
+                    src={selectedProject.images[currentImage]}
+                    alt="Project Screenshot"
+                    className="w-full max-h-[80vh] object-contain bg-slate-950 rounded-lg"
+                  />
 
                   {selectedProject.images.length > 1 && (
                     <>
@@ -182,6 +187,14 @@ const Projects = () => {
                       </button>
                     </>
                   )}
+
+                  {/* Fullscreen button */}
+                  <button
+                    onClick={() => setIsFullscreen(true)}
+                    className="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur border border-slate-600 hover:border-blue-500 text-white px-3 py-1 rounded-md transition"
+                  >
+                    ⛶
+                  </button>
                 </div>
 
                 <p className="mx-auto w-fit px-3 py-1 rounded-full bg-slate-800 text-sm text-slate-400 mb-6">
@@ -200,6 +213,27 @@ const Projects = () => {
                 >
                   View on GitHub
                 </a>
+
+                {/* Fullscreen view */}
+                {isFullscreen && (
+                  <div
+                    className="fixed inset-0 bg-black flex items-center justify-center z-[100]"
+                    onClick={() => setIsFullscreen(false)}
+                  >
+                    <img
+                      src={selectedProject.images[currentImage]}
+                      alt="Full View"
+                      className="max-w-full max-h-full object-contain"
+                    />
+
+                    <button
+                      className="absolute top-6 right-6 text-white text-2xl"
+                      onClick={() => setIsFullscreen(false)}
+                    >
+                      ✕
+                    </button>
+                  </div>
+                )}
               </motion.div>
             </motion.div>
           )}
