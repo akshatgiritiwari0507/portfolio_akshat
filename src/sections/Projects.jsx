@@ -27,9 +27,9 @@ import exp7 from "../assets/projects/expensetracker/7.png"
 import exp8 from "../assets/projects/expensetracker/8.png"
 
 // Document App screenshots
-import doc1 from "../assets/projects/documentapp/1.png"
-import doc2 from "../assets/projects/documentapp/2.png"
-import doc3 from "../assets/projects/documentapp/3.png"
+import doc1 from "../assets/projects/documentapp/1.jpeg"
+import doc2 from "../assets/projects/documentapp/2.jpeg"
+import doc3 from "../assets/projects/documentapp/3.jpeg"
 
 const projects = [
   {
