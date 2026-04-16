@@ -15,8 +15,6 @@ import ml1 from "../assets/projects/mlpredictor/1.png"
 import ml2 from "../assets/projects/mlpredictor/2.png"
 import ml3 from "../assets/projects/mlpredictor/3.png"
 import ml4 from "../assets/projects/mlpredictor/4.png"
-import ml5 from "../assets/projects/mlpredictor/5.png"
-import ml6 from "../assets/projects/mlpredictor/6.png"
 
 // Document App screenshots
 import doc1 from "../assets/projects/documentapp/1.png"
@@ -35,7 +33,7 @@ const projects = [
     title: "ML Disease Predictor",
     description:
       "Machine learning-based disease prediction system using multiple models with a Flask API for real-time recommendations.",
-    images: [ml1, ml2, ml3, ml4, ml5, ml6],
+    images: [ml1, ml2, ml3, ml4],
     github: "https://github.com/akshatgiritiwari0507/ml-recomendation-syst",
   },
   {
