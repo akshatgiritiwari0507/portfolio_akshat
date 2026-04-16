@@ -16,6 +16,16 @@ import ml2 from "../assets/projects/mlpredictor/2.png"
 import ml3 from "../assets/projects/mlpredictor/3.png"
 import ml4 from "../assets/projects/mlpredictor/4.png"
 
+//expense screenshorts
+import exp1 from "../assets/projects/expensetracker/1.png"
+import exp2 from "../assets/projects/expensetracker/2.png"
+import exp3 from "../assets/projects/expensetracker/3.png"
+import exp4 from "../assets/projects/expensetracker/4.png"
+import exp5 from "../assets/projects/expensetracker/5.png"
+import exp6 from "../assets/projects/expensetracker/6.png"
+import exp7 from "../assets/projects/expensetracker/7.png"
+import exp8 from "../assets/projects/expensetracker/8.png"
+
 // Document App screenshots
 import doc1 from "../assets/projects/documentapp/1.png"
 import doc2 from "../assets/projects/documentapp/2.png"
@@ -35,6 +45,13 @@ const projects = [
       "Machine learning-based disease prediction system using multiple models with a Flask API for real-time recommendations.",
     images: [ml1, ml2, ml3, ml4],
     github: "https://github.com/akshatgiritiwari0507/ml-recomendation-syst",
+  },
+  {
+  title: "Expense Tracker",
+  description:
+    "A full-stack expense tracking application that allows users to record, categorize, and analyze daily expenses. It features an intuitive UI, real-time updates, and efficient data handling for better financial insights.",
+  images: [exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8],
+  github: "https://github.com/YOUR_EXPENSE_TRACKER_LINK",
   },
   {
     title: "Document Expiry Reminder",
