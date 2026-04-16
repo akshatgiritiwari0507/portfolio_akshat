@@ -216,24 +216,55 @@ const Projects = () => {
 
                 {/* Fullscreen view */}
                 {isFullscreen && (
-                  <div
-                    className="fixed inset-0 bg-black flex items-center justify-center z-[100]"
-                    onClick={() => setIsFullscreen(false)}
-                  >
-                    <img
-                      src={selectedProject.images[currentImage]}
-                      alt="Full View"
-                      className="max-w-full max-h-full object-contain"
-                    />
+  <div
+    className="fixed inset-0 bg-black flex items-center justify-center z-[100]"
+    onClick={() => setIsFullscreen(false)}
+  >
+    <div
+      className="relative w-full h-full flex items-center justify-center"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <img
+        src={selectedProject.images[currentImage]}
+        alt="Full View"
+        className="max-w-full max-h-full object-contain"
+      />
 
-                    <button
-                      className="absolute top-6 right-6 text-white text-2xl"
-                      onClick={() => setIsFullscreen(false)}
-                    >
-                      ✕
-                    </button>
-                  </div>
-                )}
+      {/* LEFT BUTTON */}
+      {selectedProject.images.length > 1 && (
+        <button
+          onClick={prevImage}
+          className="absolute left-6 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-black/60 backdrop-blur border border-slate-600 hover:border-blue-500 hover:scale-110 transition flex items-center justify-center text-2xl text-white"
+        >
+          ❮
+        </button>
+      )}
+
+      {/* RIGHT BUTTON */}
+      {selectedProject.images.length > 1 && (
+        <button
+          onClick={nextImage}
+          className="absolute right-6 top-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-black/60 backdrop-blur border border-slate-600 hover:border-blue-500 hover:scale-110 transition flex items-center justify-center text-2xl text-white"
+        >
+          ❯
+        </button>
+      )}
+
+      {/* CLOSE BUTTON */}
+      <button
+        className="absolute top-6 right-6 text-white text-3xl"
+        onClick={() => setIsFullscreen(false)}
+      >
+        ✕
+      </button>
+
+      {/* COUNTER */}
+      <p className="absolute bottom-6 text-white text-sm bg-black/50 px-4 py-1 rounded-full">
+        {currentImage + 1} / {selectedProject.images.length}
+      </p>
+    </div>
+  </div>
+)}
               </motion.div>
             </motion.div>
           )}
