@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import { motion, AnimatePresence } from "framer-motion"
 import Reveal from "../components/Reveal"
 import { useState, useEffect } from "react"
@@ -67,7 +67,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null)
   const [currentImage, setCurrentImage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
-  
+
   useEffect(() => {
   const handleKeyDown = (e) => {
     if (e.key === "Escape") {
